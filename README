@@ -158,8 +158,8 @@ All potential destinations need the rule to update (check) and remove the header
 and implicitely drop packets for which the information did not match with any rules. In addition, 
 if only packets verified with the scheme are desired, all packets which do not contain the scheme header have to be dropped.
 For instance, this can be done at the output interface before the header is removed:
-[iptables -t mangle -A POSTROUTING -o eth2 -m srcauthmatch --no-header -j DROP]
 iptables -t raw -A PREROUTING -i t4_12555 -m srcauthmatch ! --no-header -j SRCAUTH --update-header
+[iptables -t mangle -A POSTROUTING -o eth1 -m srcauthmatch --no-header -j DROP]
 iptables -t mangle -A POSTROUTING -o eth1 -m srcauthmatch --has-information=1 -j SRCAUTH --remove-header
 ..
 iptables -t mangle -A POSTROUTING -o eth1 -m srcauthmatch ! --no-header -j DROP"
