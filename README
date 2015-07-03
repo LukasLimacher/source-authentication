@@ -25,7 +25,7 @@ There are 5 components
 - helper program in c for Yen’s k-shortest path
 - session setup script in perl
 
-In the following, we describe how each component can be built and executed. 
+In the following, we describe how each component can be built, configured and executed. 
 
 *********************
 Building: 
@@ -36,7 +36,7 @@ Kernel Modules:
 Download the kernel 3.18.10 source code and add the modules from the linux-3.18.10 folder.
 Later Kernel versions might also work but with no guarantee. 
 For match, target and DB module .c souce files in linux-3.18.10/net/netfilter
-For match, target and DB module .h headers fiels in linux-3.18.10/include/uapi/linux/netfilter
+For match, target and DB module .h headers files in linux-3.18.10/include/uapi/linux/netfilter
 
 The Kconfig and Makefile used for the Kernel 3.18.10 are provided and can be directly used. 
 Otherwise, make sure the Kconfig and Makefile in linux-3.18.10/net/netfilter are changed such that the 3 kernel modules are included. 
