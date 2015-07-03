@@ -1,0 +1,165 @@
+*********************
+License: 
+*********************
+Written by Lukas Limacher, <lul@open.ch>, <limlukas@ethz.ch>, 02.07.2015
+Copyright (c) 2015 Open Systems AG, Switzerland
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2 as
+published by the Free Software Foundation
+
+Please consult the LICENSE file for more details.
+
+*********************
+Introduction: 
+*********************
+This directory contains a the implementation of the Master Thesis work called
+“Source meta-information authentication along adaptive network paths for policy enforcement”. 
+
+It provides adaptive souce authentication. 
+
+There are 5 components
+- 3 Kernel Modules
+- 2 iptables extensions
+- daemon in c
+- helper program in c for Yen’s k-shortest path
+- session setup script in perl
+
+In the following, we describe how each component can be built and executed. 
+
+*********************
+Building: 
+*********************
+*********************
+Kernel Modules: 
+*********************
+Download the kernel 3.18.10 source code and add the modules from the linux-3.18.10 folder.
+Later Kernel versions might also work but with no guarantee. 
+For match, target and DB module .c souce files in linux-3.18.10/net/netfilter
+For match, target and DB module .h headers fiels in linux-3.18.10/include/uapi/linux/netfilter
+
+The Kconfig and Makefile used for the Kernel 3.18.10 are provided and can be directly used. 
+Otherwise, make sure the Kconfig and Makefile in linux-3.18.10/net/netfilter are changed such that the 3 kernel modules are included. 
+
+Now, according to your kernel build environment run make menuconfig (or the config editor of your choice) 
+to generate the .config file for the kernel. Make sure to include ALL 3 kernel modules under Networking support -> Networking options
+-> Network packet filtering framework (Netfilter) -> Core Netfilter Configuration -> “srcauthmatch”, “SRCAUTH” and “SRCAUTH_DB”.
+
+Note: To build with debug output (pr_devel etc.) make sure to define the DEBUG compile parameter (can also be done in the source code .c of the kernel modules).
+
+Now you can build and install the kernel. In our test VM this was done with the following commands.
+
+make -j2
+make modules -j2
+sudo make modules_install
+sudo make install
+
+Afterwards, you can reboot your machine and boot from the custom kernel 
+(e.g. for ubuntu press shift during startup).
+For more information see the documentation from the Linux kernel. 
+
+
+*********************
+iptables extensions:
+*********************
+Download the iptables 1.4.18 source code and add the extensions from the iptables-1.4.18 folder.
+
+To build and install iptables simply run 
+./configure
+make
+make install
+
+For more information see the documentation from iptables. 
+
+
+*********************
+nfqueue daemon:
+*********************
+In the folder nfqueue daemon, simply run the following command to generate the nfqueue program. 
+make
+Note: make sure dependencies are installed, e.g., sudo apt-get install libnetfilter-queue-dev 
+
+*********************
+Yen’s k-shortest path:
+*********************
+In the folder nfqueue/lib/yan-qi-k-shortest-paths-cpp-version-1ad62a7/src run the following command to compile.
+g++ *.cpp -o yen
+Afterwards copy the program yen to the nfqueue folder.
+Credits to Yan Qi, https://github.com/yan-qi/k-shortest-paths-cpp-version.
+
+*********************
+Sessin Setup Script:
+*********************
+To be able to run the session setup script, perl and its beeded libraries have to be installed. 
+Install perl.
+Afterwads, make sure the following perl libraries are installed on your system: 
+# In and Output, Sending
+IO::Socket::INET
+Getopt::Long
+Path::Class
+NetAddr::IP
+# Regex and utils
+Regexp::Common
+List::Util
+List::MoreUtils
+# Logging
+Log::Any
+Log::Any::Adapter
+Log::Log4perl
+# Crypto modules
+Crypt::Random
+Crypt::Digest::SHA1;
+Crypt::CBC;
+Crypt::Ed25519;
+# Fast RSA
+Crypt::OpenSSL::RSA;
+Crypt::OpenSSL::Random;
+Crypt::OpenSSL::AES;
+
+Run ./sessionSetup.pm in folder nfqueue to see if any libraries are missing. 
+For instance, each missing library can be installed with 
+perl -MCPAN -e 'install Module::name’
+
+Note: Sample OSPF testdata is provided in the folder nfqueue/testdata. To use this information, code in the session setup script has to be uncommented which can be found with “#open(STATUSFILE” and “# $router_id =“. It simulates information at a source S with id 213.156.234.1. The network diagram is visible in testdata Network.png
+
+# Option Arguments
+##################
+#
+# -destination x Set destination to x (original destination IP)
+# -d             debug output
+# -dk            use debug keys (except local keys if constant set)
+# -s             run as server
+# -r             provide routing info (local neighbours from OSPF) and exit
+# -keygen NAME   generate key for destination id NAME, if NAME=localhost,
+#                generate the localkey.bin
+
+
+*********************
+Execution:
+*********************
+On each participating host, start the Kernel with the kernel modules. 
+Go to the nfqueue folder and execute the command ./sessionSetup.pm -keygen localhost to generate a local key.
+
+Go to the nfqueue folder and execute the nfqueue daemon with ./nfqueue -k [-q NUMBER] to write the local key
+to the kernel, optionally defining the queue NUMBER (default 42) and start the daemon for routing information and key exchange protocol.
+
+*********************
+Configuration:
+*********************
+Install needed iptable rules for source authentication. Examples: 
+Adding the source authentication header for incoming traffic from interface eth1:
+iptables -t mangle -A PREROUTING -i eth1 -m srcauthmatch --no-header ! --session-present -j NFQUEUE --queue-num 42
+iptables -t mangle -A PREROUTING -i eth1 -m srcauthmatch --no-header --session-present -j SRCAUTH --set-information=1
+
+All potential intermediate entities need the update header rule, for instance for a traffic incoming at an IPsec interface:
+iptables -t raw -A PREROUTING -i t4_12555 -m srcauthmatch ! --no-header -j SRCAUTH --update-header
+
+All potential destinations need the rule to update (check) and remove the header for outgoing interface eth1 
+and implicitely drop packets for which the information did not match with any rules:
+iptables -t raw -A PREROUTING -i t4_12555 -m srcauthmatch ! --no-header -j SRCAUTH --update-header
+iptables -t mangle -A POSTROUTING -o eth1 -m srcauthmatch --has-information=1 -j SRCAUTH --remove-header
+..
+iptables -t mangle -A POSTROUTING -o eth1 -m srcauthmatch ! --no-header -j DROP"
+
+For more details please consult “Source meta-information authentication along adaptive network paths for policy enforcement”. 
+ 

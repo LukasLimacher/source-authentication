@@ -1,0 +1,21 @@
+This module provides Source Meta-Information Authentication when used in
+combination with the related DB and target modules.
+.PP
+This match can check for specific fields in the custom header added by
+the target.
+
+.PP
+.B Remove the custom header on packets that leave your local network!
+.TP
+\fB\-\-validate\-information\fP
+Validate information in the header (Verification Value)
+.TP
+\fB\-\-no\-header\fP
+Matches if no header is present
+.TP
+\fB\-\-session\-present\fP
+Matches if a session is present, is invertible.
+.TP
+\fB\-\-has\-information\fP \fIvalue\fP
+Matches if the custom scheme header is present and the meta information
+matches `value'

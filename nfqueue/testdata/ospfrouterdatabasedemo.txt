@@ -1,0 +1,297 @@
+OSPF Router with ID (213.156.234.1)
+
+
+Router Link States (Area 0.0.0.0)
+
+LS age: 96
+Options: 0x2  : *|-|-|-|-|-|E|*
+LS Flags: 0x3
+Flags: 0x2 : ASBR
+LS Type: router-LSA
+Link State ID: 213.156.234.1
+Advertising Router: 213.156.234.1
+LS Seq Number: 80001221
+Checksum: 0x61bb
+Length: 72
+Number of Links: 4
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.2
+(Link Data) Router Interface address: 213.156.234.1
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.2
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.3
+(Link Data) Router Interface address: 213.156.234.1
+Number of TOS metrics: 0
+TOS 0 Metric: 10
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.3
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 10
+
+
+LS age: 1333
+Options: 0x2  : *|-|-|-|-|-|E|*
+LS Flags: 0x6
+Flags: 0x2 : ASBR
+LS Type: router-LSA
+Link State ID: 213.156.234.2
+Advertising Router: 213.156.234.2
+LS Seq Number: 80001226
+Checksum: 0xeb6c
+Length: 96
+Number of Links: 6
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.1
+(Link Data) Router Interface address: 213.156.234.2
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.1
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.3
+(Link Data) Router Interface address: 213.156.234.2
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.3
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.4
+(Link Data) Router Interface address: 213.156.234.2
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.4
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+
+LS age: 334
+Options: 0x2  : *|-|-|-|-|-|E|*
+LS Flags: 0x6
+Flags: 0x2 : ASBR
+LS Type: router-LSA
+Link State ID: 213.156.234.3
+Advertising Router: 213.156.234.3
+LS Seq Number: 80001224
+Checksum: 0x5a5a
+Length: 120
+Number of Links: 8
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.1
+(Link Data) Router Interface address: 213.156.234.3
+Number of TOS metrics: 0
+TOS 0 Metric: 10
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.1
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 10
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.2
+(Link Data) Router Interface address: 213.156.234.3
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.2
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.4
+(Link Data) Router Interface address: 213.156.234.3
+Number of TOS metrics: 0
+TOS 0 Metric: 10
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.4
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 10
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.5
+(Link Data) Router Interface address: 213.156.234.3
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.5
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+
+LS age: 1163
+Options: 0x2  : *|-|-|-|-|-|E|*
+LS Flags: 0x6
+Flags: 0x2 : ASBR
+LS Type: router-LSA
+Link State ID: 213.156.234.4
+Advertising Router: 213.156.234.4
+LS Seq Number: 80001225
+Checksum: 0xd0d4
+Length: 120
+Number of Links: 8
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.2
+(Link Data) Router Interface address: 213.156.234.4
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.2
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.3
+(Link Data) Router Interface address: 213.156.234.4
+Number of TOS metrics: 0
+TOS 0 Metric: 10
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.3
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 10
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.5
+(Link Data) Router Interface address: 213.156.234.4
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.5
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.6
+(Link Data) Router Interface address: 213.156.234.4
+Number of TOS metrics: 0
+TOS 0 Metric: 10
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.6
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 10
+
+
+LS age: 840
+Options: 0x2  : *|-|-|-|-|-|E|*
+LS Flags: 0x6
+Flags: 0x2 : ASBR
+LS Type: router-LSA
+Link State ID: 213.156.234.5
+Advertising Router: 213.156.234.5
+LS Seq Number: 80001222
+Checksum: 0xac96
+Length: 96
+Number of Links: 6
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.3
+(Link Data) Router Interface address: 213.156.234.5
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.3
+(Link Data) Network Mask: 255.255.255.255	
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.4
+(Link Data) Router Interface address: 213.156.234.5
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.4
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.6
+(Link Data) Router Interface address: 213.156.234.5
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.6
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+
+LS age: 1415
+Options: 0x2  : *|-|-|-|-|-|E|*
+LS Flags: 0x6
+Flags: 0x2 : ASBR
+LS Type: router-LSA
+Link State ID: 213.156.234.6
+Advertising Router: 213.156.234.6
+LS Seq Number: 8000121d
+Checksum: 0xef15
+Length: 72
+Number of Links: 4
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.4
+(Link Data) Router Interface address: 213.156.234.6
+Number of TOS metrics: 0
+TOS 0 Metric: 10
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.4
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 10
+
+Link connected to: another Router (point-to-point)
+(Link ID) Neighboring Router ID: 213.156.234.5
+(Link Data) Router Interface address: 213.156.234.6
+Number of TOS metrics: 0
+TOS 0 Metric: 100
+
+Link connected to: Stub Network
+(Link ID) Net: 213.156.234.5
+(Link Data) Network Mask: 255.255.255.255
+Number of TOS metrics: 0
+TOS 0 Metric: 100

@@ -1,0 +1,18 @@
+This module provides Source Meta-Information Authentication when used in
+combination with the related DB and match modules.
+.PP
+This target adds a custom header and should therefore be used very carefully.
+TODO This target is only valid in
+.B mangle
+table.
+.PP
+.B Remove the custom header on packets that leave your local network!
+.TP
+\fB\-\-set\-information\fP \fIvalue\fP
+Set the meta information to `value' and add the header.
+.TP
+\fB\-\-update\-header\fP \fIvalue\fP
+Update the header.
+.TP
+\fB\-\-remove\-header\fP \fIvalue\fP
+Remove the header.
